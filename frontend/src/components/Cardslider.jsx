@@ -42,7 +42,8 @@ export default function ProductSlider() {
         {/* Carousel Content */}
         <div
           id="carousel"
-          className="flex overflow-x-auto space-x-4 p-4 scrollbar-hidden"
+          className="flex overflow-x-auto space-x-4 p-4 "
+          style={{scrollbarWidth: "none"}}
         >
           {products.map((product, index) => (
             <div key={index} className="flex-shrink-0">

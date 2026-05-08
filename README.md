@@ -1,11 +1,31 @@
-# React + Vite
+# Amazon Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository is now organized into two separate folders:
 
-Currently, two official plugins are available:
+- `frontend/` - React + Vite application
+- `backend/` - Express API server
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Run the projects
+
+Frontend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Backend:
+
+```bash
+cd backend
+npm install
+npm start
+```
+
+## Existing setup
+
+This template provides a minimal React + Vite app with ESLint plus a separate Express backend. The new folder structure keeps frontend and backend code separate for easier development.
 
 ## Expanding the ESLint configuration
 

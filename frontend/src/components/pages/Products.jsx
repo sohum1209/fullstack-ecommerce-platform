@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductCard from "../ProductCard";
-import products from "../../assets/products";
+// import products from "../../assets/products";
 import Sidebar from "../Sidebar";
+import { FetchAllProducts } from "../../utils/api"
 export default function Products() {
+  const [products, setProducts] = useState([])
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedDiscounts, setSelectedDiscounts] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+
+        const data = await FetchAllProducts();
+        setProducts(data.data);
+
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    fetchData();
+  }, [])
 
   const categories = [...new Set(products.map((product) => product.category))];
 
@@ -50,8 +66,8 @@ export default function Products() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 ">
           {filteredProducts.map((product) => (
             <ProductCard
-              key={product.id}
-              id={product.id}
+              key={product._id}
+              id={product._id}
               name={product.title}
               img={product.thumbnail}
               price={product.price}
