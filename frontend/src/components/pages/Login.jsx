@@ -25,6 +25,7 @@ export default function Login() {
     try {
       const resp = await loginUser(JSON.stringify(reqBody));
       const {token, name, email} = resp;
+      console.log("Login response:", resp);
       login({ name, email }, token);
       navigate("/");
     } catch (err) {

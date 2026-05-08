@@ -28,7 +28,7 @@ async function SignUpUser(req, res) {
             return res.status(400).json({ error: "Email already exists" });
         }
 
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({ error });
     }
 }
 
@@ -48,6 +48,7 @@ async function LoginUser(req, res) {
         console.log("Login token payload:", payload);
         res.json({ token: jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: process.env.JWT_EXPIRY }), name: user.name, email: user.email });
     } catch (error) {
+        console.error("Error during login:", error);
         res.status(500).json({ error });
     }
 

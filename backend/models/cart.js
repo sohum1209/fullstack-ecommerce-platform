@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cartItemSchema = new mongoose.Schema({
   productId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Product",   // tells mongoose which collection to populate from
+    ref: "product",   // tells mongoose which collection to populate from
     required: true,
   },
   quantity: {
@@ -17,7 +17,7 @@ const cartItemSchema = new mongoose.Schema({
 const cartSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "user",
     required: true,
     unique: true,     // one cart per user — enforced at DB level
   },

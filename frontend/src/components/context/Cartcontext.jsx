@@ -80,10 +80,10 @@ export const CartProvider = ({ children }) => {
   const addToCart = async (product) => {
     // optimistic UI
     setCart((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
+      const existing = prev.find((item) => item._id === product._id);
       if (existing) {
         return prev.map((item) =>
-          item.id === product.id
+          item._id === product._id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
@@ -96,7 +96,7 @@ export const CartProvider = ({ children }) => {
         await apiFetch("/cart/add", {
           method: "POST",
           body: JSON.stringify({
-            productId: product.id,
+            productId: product._id,
             quantity: 1,
           }),
         });
