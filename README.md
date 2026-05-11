@@ -1,9 +1,51 @@
-# Amazon Clone
+# ShopZone
 
-This repository is now organized into two separate folders:
+ShopZone is a full-stack e-commerce web application built using React, Node.js, Express, and MongoDB.  
+The project includes core e-commerce functionality such as user authentication, product browsing, cart management, and order workflows.
 
-- `frontend/` - React + Vite application
-- `backend/` - Express API server
+The application is split into separate frontend and backend services for better scalability and maintainability.
+
+---
+
+## Tech Stack
+
+### Frontend
+- React
+- Vite
+- React Router
+- Context API
+- Tailwind CSS
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- bcrypt
+
+---
+
+## Features
+
+- User authentication and authorization
+- Product listing and product details
+- Shopping cart functionality
+- Persistent cart data
+- JWT-based authentication
+- REST API integration
+- Responsive UI
+- Backend API with MongoDB integration
+
+---
+
+## Project Structure
+
+```bash
+shopzone/
+│
+├── frontend/   # React frontend
+└── backend/    # Express backend
 
 ## Run the projects
 
@@ -22,11 +64,3 @@ cd backend
 npm install
 npm start
 ```
-
-## Existing setup
-
-This template provides a minimal React + Vite app with ESLint plus a separate Express backend. The new folder structure keeps frontend and backend code separate for easier development.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
