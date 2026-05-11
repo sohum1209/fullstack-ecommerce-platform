@@ -40,7 +40,7 @@ export default function Login() {
     <div className="min-h-screen bg-gray-100 flex flex-col items-center pt-10 px-4">
       <Link to="/">
         <img
-          src="/src/assets/1688364164amazon-logo-transparent.png"
+          src="/src/assets/logo.png"
           alt="Amazon"
           className="h-10 mb-6 invert"
         />

@@ -106,7 +106,7 @@ export default function Signup() {
       {/* Logo */}
       <Link to="/">
         <img
-          src="/src/assets/1688364164amazon-logo-transparent.png"
+          src="/src/assets/logo.png"
           alt="Amazon"
           className="h-10 mb-6 invert"
         />

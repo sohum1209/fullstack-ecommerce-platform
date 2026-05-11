@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import products from "../assets/products";
-import logo from "../assets/1688364164amazon-logo-transparent.png";
+import logo from "../assets/logo1.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "./context/Cartcontext";
 import { useAuth } from "./context/Authcontext";
