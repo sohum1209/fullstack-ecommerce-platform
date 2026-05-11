@@ -1,214 +1,63 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const footerSections = [
+  {
+    title: "Shop",
+    links: ["New Arrivals", "Best Sellers", "Deals", "Gift Cards"],
+  },
+  {
+    title: "Support",
+    links: ["Help Center", "Shipping", "Returns", "Track Order"],
+  },
+  {
+    title: "Company",
+    links: ["About Us", "Careers", "Contact", "Stores"],
+  },
+];
+
 export default function Footer() {
   return (
-    <div>
-      <footer>
-        <div className="flex flex-wrap bg-[#232f3e] text-white justify-center p-5">
-          <div>
-            <div className="flex gap-52">
-              <div>
-                <h3 className="font-bold">Get to know us</h3>
-                <ul className="">
-                  <li>
-                    <Link to="/">About Us</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Careers</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Press Release</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Amazon science</Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold">Connect With us</h3>
-                <ul className="">
-                  <li>
-                    <Link to="/">Facebook</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Twitter</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Instagram</Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold">Make money</h3>
-                <ul className="">
-                  <li>
-                    <Link to="/">Sell on amazon</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Advertize your products</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Sell on amazon</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Advertize your products</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Advertize your products</Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold">Let us help you</h3>
-                <ul className="">
-                  <li>
-                    <Link to="/">Your Account</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Return Center</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Download App</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Help</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+    <footer className="bg-gray-950 text-gray-300">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_repeat(3,1fr)]">
+        <div>
+          <h2 className="text-2xl font-bold text-white">ShopEase</h2>
+          <p className="mt-3 max-w-sm text-sm leading-6 text-gray-400">
+            Everyday products, simple shopping, and reliable delivery for your home, work, and lifestyle.
+          </p>
+          <div className="mt-5 flex gap-3 text-sm">
+            <Link to="/" className="hover:text-white">Facebook</Link>
+            <Link to="/" className="hover:text-white">Instagram</Link>
+            <Link to="/" className="hover:text-white">Twitter</Link>
           </div>
         </div>
-        <div className="flex justify-center bg-[#131A22] text-gray-300 text-xs p-7">
-          <div>
-            <ul className="flex mb-2.5 gap-20">
-              <li className="w-36">
-                <Link to="/" className="nav_a">
-                  <h5 className="font-bold">AbeBooks</h5>
-                  <span className="navFooterDescText">
-                    Books, art
-                    <br />
-                    &amp; collectibles
-                  </span>
-                </Link>
-              </li>
 
-              <li className="w-36">
-                <Link
-                  to="/"
-                  className="nav_a"
-                >
-                  <h5 className="font-bold">Amazon Web Services</h5>s
-                  <span className="navFooterDescText">
-                    Scalable Cloud
-                    <br />
-                    Computing Services
-                  </span>
-                </Link>
-              </li>
-
-              <li className="w-36">
-                <Link to="/" className="nav_a">
-                  <h5 className="font-bold">Audible</h5>
-                  <span className="navFooterDescText">
-                    Download
-                    <br />
-                    Audio Books
-                  </span>
-                </Link>
-              </li>
-
-              <li className="w-36">
-                <Link to="/" className="nav_a">
-                  <h5 className="font-bold">IMDb</h5>
-                  <span className="navFooterDescText">
-                    Movies, TV
-                    <br />
-                    &amp; Celebrities
-                  </span>
-                </Link>
-              </li>
-            </ul>
-            <ul className="flex my-2.5 gap-20">
-              <li className="w-36">
-                <Link to="/" className="nav_a">
-                  <h5 className="font-bold">Shopbop</h5>
-                  <span className="navFooterDescText">
-                    Designer
-                    <br />
-                    Fashion Brands
-                  </span>
-                </Link>
-              </li>
-
-              <li className="w-36">
-                <Link to="/" className="nav_a">
-                  <h5 className="font-bold">Amazon Business</h5>
-                  <span className="navFooterDescText">
-                    Everything For
-                    <br />
-                    Your Business
-                  </span>
-                </Link>
-              </li>
-
-              <li className="w-36">
-                <Link to="/" className="nav_a">
-                  <h5 className="font-bold">Prime Now</h5>
-                  <span className="navFooterDescText">
-                    2-Hour Delivery
-                    <br />
-                    on Everyday Items
-                  </span>
-                </Link>
-              </li>
-
-              <li className="w-36">
-                <Link to="/" className="nav_a">
-                  <h5 className="font-bold">Amazon Prime Music</h5>
-                  <span className="navFooterDescText">
-                    100 million songs, ad-free
-                    <br />
-                    Over 15 million podcast episodes
-                  </span>
-                </Link>
-              </li>
+        {footerSections.map((section) => (
+          <div key={section.title}>
+            <h3 className="font-semibold text-white">{section.title}</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              {section.links.map((link) => (
+                <li key={link}>
+                  <Link to="/" className="hover:text-white">
+                    {link}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
+        ))}
+      </div>
+
+      <div className="border-t border-gray-800">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-5 text-sm text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+          <p>Copyright 2026 ShopEase. All rights reserved.</p>
+          <div className="flex flex-wrap gap-4">
+            <Link to="/" className="hover:text-white">Privacy Policy</Link>
+            <Link to="/" className="hover:text-white">Terms of Service</Link>
+            <Link to="/" className="hover:text-white">Cookie Settings</Link>
+          </div>
         </div>
-        <div className="flex flex-col justify-center bg-[#131A22] p-5">
-          <ul className="flex justify-center text-xs text-gray-400 gap-2.5">
-            <li className="nav_first">
-              <Link
-                to="/"
-                id=""
-                className="nav_a"
-              >
-                Conditions of Use &amp; Sale
-              </Link>{" "}
-            </li>
-            <li>
-              <Link
-                to="/"
-                id=""
-                className="nav_a"
-              >
-                Privacy Notice
-              </Link>{" "}
-            </li>
-            <li className="nav_last">
-              <Link
-                to="/"
-                id=""
-                className="nav_a"
-              >
-                Interest-Based Ads
-              </Link>{" "}
-            </li>
-          </ul>
-          <div className="text-xs text-gray-400 text-center">© 1996-2025, Amazon.com, Inc. or its affiliates</div>
-        </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 }
