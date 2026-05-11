@@ -38,6 +38,8 @@ export default function Products() {
     return matchCategory && matchDiscount;
   });
 
+  // console.log("Filtered Products: ", filteredProducts)
+
   const handleCategorySelect = (categories) => {
     setSelectedCategories(categories);
   };

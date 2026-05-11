@@ -2,7 +2,7 @@ const product = require("../models/product");
 
 async function FetchAllProducts(req, res) {
     try {
-        const products = await product.find({}, "title thumbnail price rating category");
+        const products = await product.find({}, "title thumbnail price discountPercentage rating category");
         return res.json({ data: products });
 
     } catch (error) {

@@ -15,11 +15,11 @@ const protect = async (req, res, next) => {
 
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    console.log("Decoded token:", decoded); // Debug log
+    // console.log("Decoded token:", decoded); // Debug log
 
     // Get user from token
     const user = await User.findById(decoded.id).select("-password");
-    console.log("Found user:", user ? user._id : "null"); // Debug log
+    // console.log("Found user:", user ? user._id : "null"); // Debug log
 
     if (!user) {
       return res.status(401).json({ error: "Not authorized, user not found" });
@@ -28,7 +28,7 @@ const protect = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    console.log("Token verification error:", error.message); // Debug log
+    // console.log("Token verification error:", error.message); // Debug log
     res.status(401).json({ error: "Not authorized, token failed" });
   }
 };

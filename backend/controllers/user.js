@@ -45,7 +45,7 @@ async function LoginUser(req, res) {
         const user = await User.findOne({ email });
         if (!user || !(await user.comparePassword(password))) return res.status(401).json({ error: "Invalid credentials" });
         const payload = { id: user._id || user.id, email: user.email };
-        console.log("Login token payload:", payload);
+        // console.log("Login token payload:", payload);
         res.json({ token: jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: process.env.JWT_EXPIRY }), name: user.name, email: user.email });
     } catch (error) {
         console.error("Error during login:", error);

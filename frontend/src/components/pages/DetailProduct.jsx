@@ -5,7 +5,7 @@ import { GetProductDetails } from "../../utils/api";
 
 export default function DetailProduct() {
   const { id } = useParams();
-  console.log("Product ID from URL:", id); // Debug log
+  // console.log("Product ID from URL:", id); // Debug log
 
   // ✅ Correct initial states
   const [product, setProduct] = useState(null);

@@ -1,8 +1,25 @@
-import React from "react";
-import products from "../assets/products";
+import {useEffect, useState} from "react";
+// import products from "../assets/products";
 import { Link } from "react-router-dom";
+import { FetchAllProducts } from "../utils/api";
+
 
 export default function ProductSlider() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+
+        const data = await FetchAllProducts();
+        setProducts(data.data);
+
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    fetchData();
+  }, [])
+
   // Function to scroll to the left
   const scrollLeft = () => {
     document.getElementById("carousel").scrollBy({
@@ -47,7 +64,7 @@ export default function ProductSlider() {
         >
           {products.map((product, index) => (
             <div key={index} className="flex-shrink-0">
-              <Link to={`/product/${product.id}`}>
+              <Link to={`/product/${product._id}`}>
                 <img
                   src={product.thumbnail}
                   alt={`Product ${index}`}

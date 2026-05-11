@@ -4,6 +4,7 @@ const connectMongodb = require("./config/db");
 const userRouter = require("./router/user");
 const productsRouter = require("./router/product")
 const CartRouter = require("./router/cart")
+const OrderRouter = require("./router/order")
 const cors = require("cors");
 
 
@@ -28,6 +29,7 @@ app.use("/api/products", productsRouter)
 
 app.use("/api/cart", CartRouter)
 
+app.use("/api/orders", OrderRouter);
 
 app.listen(8000, ()=>{
     console.log("Server listening on port 8000")

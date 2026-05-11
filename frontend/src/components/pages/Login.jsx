@@ -24,12 +24,18 @@ export default function Login() {
 
     try {
       const resp = await loginUser(JSON.stringify(reqBody));
+      
+      // console.log("Login response:", resp);
+      if(!resp.token){
+        setError("Invalid email or password");
+        setLoading(false);
+        return;
+      }
       const {token, name, email} = resp;
-      console.log("Login response:", resp);
       login({ name, email }, token);
       navigate("/");
     } catch (err) {
-        console.log("ERROR: ", err)
+        // console.log("ERROR: ", err)
       setError("Invalid email or password");
     } finally {
       setLoading(false);
