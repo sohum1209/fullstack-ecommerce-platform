@@ -46,6 +46,7 @@ shopzone/
 │
 ├── frontend/   # React frontend
 └── backend/    # Express backend
+```
 
 ## Run the projects
 
