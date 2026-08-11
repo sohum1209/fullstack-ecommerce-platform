@@ -7,6 +7,7 @@ import DetailProduct from "./components/pages/DetailProduct";
 import Products from "./components/pages/Products.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Login from "./components/pages/Login.jsx";
+import VerifyEmail from "./components/pages/VerifyEmail.jsx";
 import Cart from "./components/pages/Cart.jsx";
 import Checkout from "./components/pages/Checkout.jsx";
 import Orders from "./components/pages/Orders.jsx";
@@ -30,6 +31,7 @@ function App() {
             <Route path="/product/:id" element={<DetailProduct />} />
             <Route path="/login" element={<Login/>}/>
             <Route path="/signup" element={<Signup/>}/>
+            <Route path="/verify" element={<VerifyEmail/>}/>
           </Routes>
           <Footer />
         </CartProvider>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
 import { loginUser } from "../../utils/api";
 
@@ -8,6 +8,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError]       = useState("");
   const [loading, setLoading]   = useState(false);
+
+  const location = useLocation();
+  const successMessage = location.state?.message || "";
 
   const { login } = useAuth();
   const navigate  = useNavigate();
@@ -35,8 +38,7 @@ export default function Login() {
       login({ name, email }, token);
       navigate("/");
     } catch (err) {
-        // console.log("ERROR: ", err)
-      setError("Invalid email or password");
+      setError(err?.message || "Invalid email or password");
     } finally {
       setLoading(false);
     }
@@ -54,6 +56,12 @@ export default function Login() {
 
       <div className="bg-white w-full max-w-sm rounded-lg border border-gray-300 p-6">
         <h1 className="text-2xl font-medium text-gray-800 mb-5">Sign in</h1>
+
+        {successMessage && (
+          <div className="mb-4 p-3 bg-green-50 border border-green-300 rounded text-sm text-green-700">
+            {successMessage}
+          </div>
+        )}
 
         {error && (
           <div className="mb-4 p-3 bg-red-50 border border-red-300 rounded text-sm text-red-700">

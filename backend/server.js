@@ -5,6 +5,7 @@ const userRouter = require("./router/user");
 const productsRouter = require("./router/product")
 const CartRouter = require("./router/cart")
 const OrderRouter = require("./router/order")
+const userVerificationRouter = require("./router/userVerification");
 const cors = require("cors");
 
 
@@ -24,6 +25,8 @@ app.use(cors({
 app.use(express.json());    
 
 app.use("/api/user", userRouter);
+
+app.use("/api/user-verification", userVerificationRouter);
 
 app.use("/api/products", productsRouter)
 

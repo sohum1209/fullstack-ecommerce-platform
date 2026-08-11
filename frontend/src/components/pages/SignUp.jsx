@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 import { signUpUser } from "../../utils/api";
 
 export default function Signup() {
@@ -17,7 +16,6 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
   const [serverError, setServerError] = useState("");
 
-  const { login } = useAuth();
   const navigate = useNavigate();
 
   // ── Handle any input change ──────────────────────────────
@@ -89,12 +87,18 @@ export default function Signup() {
     setLoading(true);
     try {
       const resp = await signUpUser(JSON.stringify(formData));
-      if (resp.userId)
-        navigate("/login");
-    } catch (err) {
+      if (resp?.userId) {
+        sessionStorage.setItem("verifyUserId", resp.userId);
+        navigate("/verify", {
+          state: { userId: resp.userId, email: formData.email },
+        });
+        return;
+      }
       setServerError(
-        err.response?.data?.error || "Something went wrong. Please try again."
+        resp?.error || resp?.message || "Something went wrong. Please try again."
       );
+    } catch (err) {
+      setServerError(err.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }

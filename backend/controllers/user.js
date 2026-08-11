@@ -25,7 +25,7 @@ async function SignUpUser(req, res) {
 
     } catch (error) {
         if (error.code === 11000) {
-            return res.status(400).json({ error: "Email already exists" });
+            return res.status(400).json(error);
         }
 
         return res.status(500).json({ error });
@@ -43,13 +43,15 @@ async function LoginUser(req, res) {
 
     try {
         const user = await User.findOne({ email });
-        if (!user || !(await user.comparePassword(password))) return res.status(401).json({ error: "Invalid credentials" });
+        if (!user) return res.status(401).json({ error: "Invalid credentials" });
+        if (!user.isVerified) return res.status(403).json({ error: "Please verify your email before logging in." });
+        if (!(await user.comparePassword(password))) return res.status(401).json({ error: "Invalid credentials" });
+
         const payload = { id: user._id || user.id, email: user.email };
-        // console.log("Login token payload:", payload);
         res.json({ token: jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: process.env.JWT_EXPIRY }), name: user.name, email: user.email });
     } catch (error) {
         console.error("Error during login:", error);
-        res.status(500).json({ error });
+        res.status(500).json({ error: "Internal server error" });
     }
 
 }
